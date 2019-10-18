@@ -3,11 +3,30 @@ Bowling Challenge
 =================
 
 
-* Challenge time: rest of the day and weekend.
-* Feel free to use google, your notes, books, etc. but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday week
+# User Story 1
+As a player
+So I have a gutter game,
+I want to be able to record that I never hit a pin
+
+# User Story 2
+As a player
+So I can record my bowl for the first frame
+I want to be able to input my bowls for one frame
+
+# User Story 3
+As a player
+So that I know my score
+I want to be able to see my score for the first frame
+
+# User Story 4
+As a player
+So that I can record my bowls
+I want to be able to input by bowls for 10 frames
+
+# User Story 5
+As a player
+So that I know how well I bowled,
+I want to be able to see my score for each frame and my total score
 
 ## The Task
 

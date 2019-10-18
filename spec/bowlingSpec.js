@@ -43,7 +43,7 @@ describe("Scorecard", function() {
       for (var i = 0; i < 20; i++) {
         scorecard.bowl(0)
       }
-      expect(scorecard.totalScore).toEqual(0)
+      expect(scorecard.getTotalScore()).toEqual(0)
     })
   })
 })

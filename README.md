@@ -5,28 +5,32 @@ Bowling Challenge
 
 # User Story 1
 As a player
-So I have a gutter game,
-I want to be able to record that I never hit a pin
+So I can record my score,
+I want to enter how many pins I knock down on each bowl.
 
 # User Story 2
-As a player
-So I can record my bowl for the first frame
-I want to be able to input my bowls for one frame
+As a player,
+So I can know my score per frame without bonuses,
+I want to be able to see the sum of knocked pins after each frame. 
 
 # User Story 3
 As a player
-So that I know my score
-I want to be able to see my score for the first frame
+So that I can see how I performed in one frame,
+I want to have 2 bowls per frame with 10 frames in total.
 
 # User Story 4
 As a player
-So that I can record my bowls
-I want to be able to input by bowls for 10 frames
+So that I can see my score per frame,
+I want the scorecard to total up my score per frame.
 
 # User Story 5
 As a player
-So that I know how well I bowled,
-I want to be able to see my score for each frame and my total score
+So that I don't get an extra bowl if I get a strike,
+I want the scorecard to skip my second bowl if I get a strike on my first bowl.
+
+# User Story 6
+As a player
+
 
 ## The Task
 

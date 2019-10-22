@@ -20,7 +20,10 @@ describe("Scorecard", function() {
     it('starts with an empty total score array', function() {
       expect(scorecard.totalScore).toEqual(0)
     })
-    // add one for framescore
+
+    it('starts with an empty frames array', function() {
+      expect(scorecard.frames).toEqual([]);
+    })
   })
 
   describe('Gutter Game', function() {
@@ -36,7 +39,7 @@ describe("Scorecard", function() {
       for (var i = 0; i < 3; i++) {
         scorecard.bowl(0)
       }
-      expect(scorecard.frameScore).toEqual([0,0,0])
+      expect(scorecard.frames).toEqual([0,0,0])
     })
 
     it('has a total score of 0', function() {

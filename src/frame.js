@@ -18,9 +18,10 @@ Frame.prototype.knockedPins = function(score) {
   if (score <= 10 && this.calcFrameScore(score) <= 10 && this.frameOver()) {
     this.roll.push(score)
     this.strike()
+    this.spare() 
     return this.getCurrentScore()
   } else {
-    return this.getCurrentScore() 
+    return this.getCurrentScore()
   }
 }
 
@@ -38,6 +39,12 @@ Frame.prototype.calcFrameScore = function(num=0) {
 
 Frame.prototype.strike = function() {
   if(this.roll[0] === 10) {
+    return true
+  }
+}
+
+Frame.prototype.spare = function() {
+  if(this.calcFrameScore() === 10) {
     return true
   }
 }

@@ -66,4 +66,12 @@ describe("Frame", function() {
       expect(frame.strike()).toBe(true)
     })
   })
+
+  describe('spare function', function() {
+    it('returns true if frame score is 10', function() {
+      frame.knockedPins(5)
+      frame.knockedPins(5)
+      expect(frame.spare()).toBe(true)
+    })
+  })
 })

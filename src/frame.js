@@ -1,14 +1,17 @@
 "use strict";
 
 function Frame() {
-  // this.bowlCount = 0;
-  // this.totalScore = 0;
+  this.frameScore = 0
   this.roll = [];
-  // this.initFrames = [];
 }
 
 Frame.prototype.getRolls = function() {
   return this.roll
+}
+
+Frame.prototype.getCurrentScore = function() {
+  this.frameScore = this.calcFrameScore()
+  return this.frameScore
 }
 
 Frame.prototype.knockedPins = function(score) {
@@ -23,4 +26,8 @@ Frame.prototype.frameOver = function() {
   } else {
     return true
   }
+}
+
+Frame.prototype.calcFrameScore = function(num=0) {
+  return this.roll.reduce((a, b) => a + b, num)
 }

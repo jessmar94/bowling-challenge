@@ -7,18 +7,18 @@ function Frame() {
   // this.initFrames = [];
 }
 
-Frame.prototype.getBowls = function() {
+Frame.prototype.getRolls = function() {
   return this.roll
 }
 
-Frame.prototype.bowl = function(knockedPins) {
+Frame.prototype.knockedPins = function(score) {
   if (this.frameOver()) {
-  this.roll.push(knockedPins)
+  this.roll.push(score)
   }
 }
 
 Frame.prototype.frameOver = function() {
-  if (this.frame.length >= 2) {
+  if (this.roll.length >= 2) {
     return false
   } else {
     return true

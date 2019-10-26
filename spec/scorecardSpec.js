@@ -44,4 +44,21 @@ describe("Scorecard", function() {
       expect(card.getTotalScore()).toEqual(0)
     })
   })
+
+  describe('calcStrikeBonus', function() {
+    it('returns a bonus score of score of next frame', function() {
+      let frames = []
+      for (var i = 0; i < 2; i++) {
+        frames[i] = new Frame()
+        frames[i].bowl(10)
+        frames[i] = new Frame()
+        frames[i].bowl(4)
+        frames[i].bowl(3)
+      }
+      for (var i = 0; i < 2; i++) {
+        card.initFrames(frames[i])
+      }
+      expect(card.calcStrikeBonus()).toEqual(17)
+    })
+  })
 })

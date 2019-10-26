@@ -25,10 +25,14 @@ Scorecard.prototype.getFrameScore = function(key) {
 
 Scorecard.prototype.calcStrikeBonus = function() {
   for (var i = 1; i < 9; i++){
-    return 10 + (this.frames[i + 1].frameScore || 0)
-      + (this.frames[i + 2].frameScore || 0);
+    // fix this failing test 
+    return (this.frames[i].frameScore + this.frames[i + 1].frameScore || 0)
     if (this.frames[i + 1].strike === true) {
-      return 20 + (this.frames[i + 2].frameScore || 0)
+      return (this.frames[i] + this.frames[i + 1].frameScore + this.frames[i + 2].frameScore || 0)
     }
   }
+}
+
+Scorecard.prototype.calcSpareBonus = function() {
+  return (this.frames[i].frameScore + this.frames[i + 1][0] || 0);
 }

@@ -61,4 +61,22 @@ describe("Scorecard", function() {
       expect(card.calcStrikeBonus()).toEqual(17)
     })
   })
+
+  describe('calcSpareBonus', function() {
+    it('returns a bonus score of first roll of next frame', function() {
+      let frames = []
+      for (var i = 0; i < 2; i++) {
+        frames[i] = new Frame()
+        frames[i].bowl(5)
+        frames[i].bowl(5)
+        frames[i] = new Frame()
+        frames[i].bowl(4)
+        frames[i].bowl(3)
+      }
+      for (var i = 0; i < 2; i++) {
+        card.initFrames(frames[i])
+      }
+      expect(card.calcStrikeBonus()).toEqual(14)
+    })
+  })
 })

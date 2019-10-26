@@ -59,4 +59,11 @@ describe("Frame", function() {
       expect(frame.getCurrentScore()).toEqual(8)
     })
   })
+
+  describe('strike functin', function() {
+    it('returns true if players bowls 10', function() {
+      frame.knockedPins(10)
+      expect(frame.strike()).toBe(true)
+    })
+  })
 })

@@ -5,28 +5,27 @@ Bowling Challenge
 
 # User Story 1
 As a player
-So I can record my score,
+So I can keep a scorecard of my bowling game,
 I want to enter how many pins I knock down on each bowl.
 
 # User Story 2
 As a player,
-So I can know my score per frame without bonuses,
-I want to be able to see the sum of knocked pins after each frame. 
+So I can keep track of my score at each frame,
+I want to be able to see the total score for each frame (pre bonuses).  
 
 # User Story 3
 As a player
-So that I can see how I performed in one frame,
-I want to have 2 bowls per frame with 10 frames in total.
+So that I can know if I'm better than my friends,
+I want to be able to see the total score for my bowling game (pre bonuses).
 
 # User Story 4
 As a player
-So that I can see my score per frame,
-I want the scorecard to total up my score per frame.
+So the scorecard factors in my strikes,
+I should not get a second bowl if I get a strike on my first bowl, within one frame. 
 
 # User Story 5
 As a player
-So that I don't get an extra bowl if I get a strike,
-I want the scorecard to skip my second bowl if I get a strike on my first bowl.
+
 
 # User Story 6
 As a player

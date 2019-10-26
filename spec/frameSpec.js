@@ -19,58 +19,63 @@ describe("Frame", function() {
 
   describe('getRolls', function() {
     it('saves a roll when user bowls twice', function() {
-      frame.knockedPins(5)
-      frame.knockedPins(3)
+      frame.bowl(5)
+      frame.bowl(3)
       expect(frame.getRolls()).toContain(5)
       expect(frame.getRolls()).toContain(3)
     })
 
     it('does not save roll when user bowls >2', function() {
-      frame.knockedPins(5)
-      frame.knockedPins(3)
-      frame.knockedPins(4)
-      expect(frame.getCurrentScore()).toEqual(8)
+      frame.bowl(5)
+      frame.bowl(3)
+      frame.bowl(4)
+      expect(frame.getFrameScore()).toEqual(8)
+    })
+
+    it('does not save roll when knockedPins is >10', function() {
+      frame.bowl(15)
+      expect(frame.getFrameScore()).toEqual(0)
     })
   })
 
-  describe('frameOver', function() {
+  describe('frameLength', function() {
     it('returns false when roll array length is >=2', function() {
-      frame.knockedPins(5)
-      frame.knockedPins(3)
-      frame.knockedPins(4)
+      frame.bowl(5)
+      frame.bowl(3)
+      frame.bowl(4)
       frame.roll.length = 3
-      expect(frame.frameOver()).toBe(false)
+      expect(frame.frameLength()).toBe(false)
     })
   })
 
   describe('calcFrameScore', function() {
     it('totals the score for the frame', function() {
-      frame.knockedPins(5)
-      frame.knockedPins(3)
+      frame.bowl(5)
+      frame.bowl(3)
       expect(frame.calcFrameScore()).toEqual(8)
     })
   })
 
-  describe('getCurrentScore', function() {
+  describe('getFrameScore', function() {
     it('returns the score so far', function() {
-      frame.knockedPins(5)
-      frame.knockedPins(3)
+      frame.bowl(5)
+      frame.bowl(3)
       frame.calcFrameScore()
-      expect(frame.getCurrentScore()).toEqual(8)
+      expect(frame.getFrameScore()).toEqual(8)
     })
   })
 
   describe('strike functin', function() {
     it('returns true if players bowls 10', function() {
-      frame.knockedPins(10)
+      frame.bowl(10)
       expect(frame.strike()).toBe(true)
     })
   })
 
   describe('spare function', function() {
     it('returns true if frame score is 10', function() {
-      frame.knockedPins(5)
-      frame.knockedPins(5)
+      frame.bowl(5)
+      frame.bowl(5)
       expect(frame.spare()).toBe(true)
     })
   })

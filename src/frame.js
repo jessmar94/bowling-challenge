@@ -9,23 +9,23 @@ Frame.prototype.getRolls = function() {
   return this.roll
 }
 
-Frame.prototype.getCurrentScore = function() {
+Frame.prototype.getFrameScore = function() {
   this.frameScore = this.calcFrameScore()
   return this.frameScore
 }
 
-Frame.prototype.knockedPins = function(score) {
-  if (score <= 10 && this.calcFrameScore(score) <= 10 && this.frameOver()) {
-    this.roll.push(score)
+Frame.prototype.bowl = function(knockedPins) {
+  if (knockedPins <= 10 && this.calcFrameScore(knockedPins) <= 10 && this.frameLength()) {
+    this.roll.push(knockedPins)
     this.strike()
-    this.spare() 
-    return this.getCurrentScore()
+    this.spare()
+    return this.getFrameScore()
   } else {
-    return this.getCurrentScore()
+    return this.getFrameScore()
   }
 }
 
-Frame.prototype.frameOver = function() {
+Frame.prototype.frameLength = function() {
   if (this.roll.length >= 2) {
     return false
   } else {
@@ -38,13 +38,13 @@ Frame.prototype.calcFrameScore = function(num=0) {
 }
 
 Frame.prototype.strike = function() {
-  if(this.roll[0] === 10) {
+  if (this.roll[0] === 10) {
     return true
   }
 }
 
 Frame.prototype.spare = function() {
-  if(this.calcFrameScore() === 10) {
+  if (this.calcFrameScore() === 10) {
     return true
   }
 }

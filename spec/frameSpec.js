@@ -8,15 +8,6 @@ describe("Frame", function() {
     frame = new Frame();
   })
 
-  describe('on initialization', function() {
-    it('starts with an empty frame array', function() {
-      expect(frame.roll).toEqual([])
-    })
-    it('starts with a frameCount of 0', function() {
-      expect(frame.frameScore).toEqual(0)
-    })
-  })
-
   describe('getRolls', function() {
     it('saves a roll when user bowls twice', function() {
       frame.bowl(5)
@@ -68,7 +59,7 @@ describe("Frame", function() {
   describe('strike functin', function() {
     it('returns true if players bowls 10', function() {
       frame.bowl(10)
-      expect(frame.strike()).toBe(true)
+      expect(frame.strike).toEqual(true)
     })
   })
 
@@ -76,7 +67,7 @@ describe("Frame", function() {
     it('returns true if frame score is 10', function() {
       frame.bowl(5)
       frame.bowl(5)
-      expect(frame.spare()).toBe(true)
+      expect(frame.spare).toEqual(true)
     })
   })
 })

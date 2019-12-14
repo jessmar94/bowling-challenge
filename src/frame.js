@@ -3,6 +3,8 @@
 function Frame() {
   this.frameScore = 0
   this.roll = [];
+  this.strike = false;
+  this.spare = false;
 }
 
 Frame.prototype.getRolls = function() {
@@ -17,8 +19,8 @@ Frame.prototype.getFrameScore = function() {
 Frame.prototype.bowl = function(knockedPins) {
   if (knockedPins <= 10 && this.calcFrameScore(knockedPins) <= 10 && this.frameLength()) {
     this.roll.push(knockedPins)
-    this.strike()
-    this.spare()
+    this.isStrike()
+    this.isSpare()
     return this.getFrameScore()
   } else {
     return this.getFrameScore()
@@ -37,14 +39,14 @@ Frame.prototype.calcFrameScore = function(num=0) {
   return this.roll.reduce((a, b) => a + b, num)
 }
 
-Frame.prototype.strike = function() {
+Frame.prototype.isStrike = function() {
   if (this.roll[0] === 10) {
-    return true
+    this.strike = true;
   }
 }
 
-Frame.prototype.spare = function() {
+Frame.prototype.isSpare = function() {
   if (this.calcFrameScore() === 10) {
-    return true
+    this.spare = true;
   }
 }

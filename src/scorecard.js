@@ -27,10 +27,10 @@ Scorecard.prototype.getCumulativeScore = function() {
 Scorecard.prototype.calcFrameBonus = function() {
   for (var i = 1; i < 9; i++) {
     if (this.frames[i].strike) {
-      this.bonusFrame = (this.frames[i+1].frameScore || 0) + (this.frames[i+2].frameScore || 0)
+      this.bonusFrame[i] = (this.frames[i+1].frameScore || 0) + (this.frames[i+2].frameScore || 0)
     }
     else if (this.frames[i].spare) {
-      this.bonusFrame = this.frames[i+1][0]
+      this.bonusFrame[i] = this.frames[i+1][0]
     }
   }
   this.getPenultimateFrameBonus()
@@ -41,7 +41,7 @@ Scorecard.prototype.calcFrameBonus = function() {
 Scorecard.prototype.getPenultimateFrameBonus = function() {
   if (this.frames[9].strike) {
     this.bonusFrame[9] = (this.frames[9].frameScore || 0) + (this.frames[10].frameScore || 0)
-  } else if (this.frames[9].spare){
+  } else if (this.frames[9].spare) {
     this.bonusFrame[9] = this.frames[9][0]
   }
 }
@@ -50,10 +50,10 @@ Scorecard.prototype.getPenultimateFrameBonus = function() {
 Scorecard.prototype.getFinalFrameBonus = function(pins) {
   if (pins > 10){
     console.log('You cannot knock more than 10 pins')
-  } else if (this.frames[10].strike || this.frames[10].spare){
+  } else if (this.frames[10].strike || this.frames[10].spare) {
     if (pins === 10){
       this.finalFrameBonus.push(pins)
-      this.lastBonus(pins)
+      this.lastBonus
     } else {
       this.finalFrameBonus.push(pins)
     }

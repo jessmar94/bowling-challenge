@@ -29,13 +29,13 @@ describe("Frame", function() {
     })
   })
 
-  describe('frameLength', function() {
+  describe('validateFrameLength', function() {
     it('returns false when roll array length is >=2', function() {
       frame.bowl(5)
       frame.bowl(3)
       frame.bowl(4)
       frame.roll.length = 3
-      expect(frame.frameLength()).toBe(false)
+      expect(frame.validateFrameLength()).toBe(false)
     })
   })
 

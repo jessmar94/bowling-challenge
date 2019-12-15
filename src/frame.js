@@ -17,7 +17,7 @@ Frame.prototype.getFrameScore = function() {
 }
 
 Frame.prototype.bowl = function(knockedPins) {
-  if (knockedPins <= 10 && this.calcFrameScore(knockedPins) <= 10 && this.frameLength()) {
+  if (knockedPins <= 10 && this.calcFrameScore(knockedPins) <= 10 && this.validateFrameLength()) {
     this.roll.push(knockedPins)
     this.isStrike()
     this.isSpare()
@@ -27,7 +27,7 @@ Frame.prototype.bowl = function(knockedPins) {
   }
 }
 
-Frame.prototype.frameLength = function() {
+Frame.prototype.validateFrameLength = function() {
   if (this.roll.length >= 2) {
     return false
   } else {

@@ -1,80 +1,78 @@
-"use strict";
 
-function Scorecard() {
-  this.frameNumber = 1;
-  this.frames = { 1:[], 2:[], 3:[], 4:[], 5:[], 6:[], 7:[], 8:[], 9:[], 10:[] };
-  this.bonusFrame = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0};
-  this.bonusScore = 0;
-  this.cumulativeScore = 0;
+function Scorecard(FrameType) {
+  this.frames = [];
+
+  this.bonusFrame = [];
   this.finalFrameBonus = [];
   this.gameOver = false;
+
+  this.initFrames(FrameType);
 }
 
-Scorecard.prototype.initFrames = function(frame){
-  this.frames[this.frameNumber] = frame;
-  this.frameNumber++;
-  this.calcFrameBonus();
-}
-
-Scorecard.prototype.getCumulativeScore = function() {
-  for (var i = 1; i < 11; i++) {
-    this.cumulativeScore += this.frames[i].frameScore;
+Scorecard.prototype.initFrames = function (FrameType) {
+  for (let i = 0; i < 10; i++) {
+    this.frames.push(new FrameType());
   }
-  return this.cumulativeScore
-}
+};
+
+Scorecard.prototype.getCumulativeScore = function () {
+  return this.frames.reduce((total, frame) => total + frame.getFrameScore(), 0);
+};
 
 // for first 8 frames
-Scorecard.prototype.calcFrameBonus = function() {
-  for (var i = 1; i < 9; i++) {
-    if (this.frames[i].strike) {
-      this.bonusFrame[i] = (this.frames[i+1].frameScore || 0) + (this.frames[i+2].frameScore || 0)
-    }
-    else if (this.frames[i].spare) {
-      this.bonusFrame[i] = this.frames[i+1][0]
+Scorecard.prototype.calcFrameBonus = function () {
+  for (let i = 0; i < 8; i++) {
+    if (this.frames[i].isStrike()) {
+      this.bonusFrame[i] = this.frames[i + 1].getFrameScore() + this.frames[i + 2].getFrameScore();
+    } else if (this.frames[i].isSpare()) {
+      const [spareScore = 0] = this.frames[i + 1].getRolls();
+      this.bonusFrame[i] = spareScore;
     }
   }
-  this.getPenultimateFrameBonus()
-  return this.bonusFrame
-}
+
+  this.getPenultimateFrameBonus();
+};
 
 // for 9th frame
-Scorecard.prototype.getPenultimateFrameBonus = function() {
-  if (this.frames[9].strike) {
-    this.bonusFrame[9] = (this.frames[9].frameScore || 0) + (this.frames[10].frameScore || 0)
-  } else if (this.frames[9].spare) {
-    this.bonusFrame[9] = this.frames[9][0]
+Scorecard.prototype.getPenultimateFrameBonus = function () {
+  if (this.frames[8].isStrike()) {
+    this.bonusFrame[8] = this.frames[8].getFrameScore() + this.frames[9].getFrameScore();
+  } else if (this.frames[8].isSpare()) {
+    const [spareScore = 0] = this.frames[8].getRolls();
+    this.bonusFrame[8] = spareScore;
   }
-}
+};
 
 // for 10th frame
-Scorecard.prototype.getFinalFrameBonus = function(pins) {
-  if (pins > 10){
-    console.log('You cannot knock more than 10 pins')
-  } else if (this.frames[10].strike || this.frames[10].spare) {
-    if (pins === 10){
-      this.finalFrameBonus.push(pins)
-      this.lastBonus
-    } else {
-      this.finalFrameBonus.push(pins)
-    }
+Scorecard.prototype.getFinalFrameBonus = function (pins) {
+  if (pins > 10) {
+    // eslint-disable-next-line no-console
+    console.log('You cannot knock more than 10 pins');
+    return;
   }
-}
 
-Scorecard.prototype.lastBonus = function(pins) {
-  this.finalFrameBonus.push(pins)
-}
-
-Scorecard.prototype.calcFinalFrameBonus = function() {
-  return this.finalFrameBonus.reduce((a, b) => a + b, 0);
-}
-
-Scorecard.prototype.calcBonusScore = function() {
-  for (var i = 1; i < 11; i++){
-    this.bonusScore += this.bonusFrame[i];
+  // In this line you check if the frame is a strike or a spare, but the way you wrote the 'isSpare' function
+  // means that strikes are already spares so you could simplify this to just checking for spares.
+  // I think this is easier to read though, so maybe you could change the 'isSpare' function to return false on
+  // a strike?
+  if (this.frames[9].isStrike() || this.frames[9].isSpare()) {
+    this.finalFrameBonus.push(pins);
   }
-  return this.bonusScore;
-}
+};
 
-Scorecard.prototype.getTotalScore = function() {
+Scorecard.prototype.calcFinalFrameBonus = function () {
+  return this.finalFrameBonus.reduce((total, next) => total + next, 0);
+};
+
+Scorecard.prototype.calcBonusScore = function () {
+  return this.bonusFrame.reduce((total, next) => total + next, 0);
+};
+
+Scorecard.prototype.getTotalScore = function () {
+  this.calcFrameBonus();
   return this.getCumulativeScore() + this.calcBonusScore() + this.calcFinalFrameBonus();
+};
+
+if (typeof module !== 'undefined' && module.hasOwnProperty('exports')) {
+  module.exports = Scorecard;
 }

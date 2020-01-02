@@ -16,7 +16,7 @@ Frame.prototype.bowl = function(knockedPins) {
 }
 
 Frame.prototype.getFrameScore = function() {
-  return this.roll.reduce((a, b) => a + b, num)
+  return this.roll.reduce((a, b) => a + b, 0)
 }
 
 Frame.prototype.validateFrameLength = function() {

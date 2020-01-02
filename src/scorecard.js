@@ -3,7 +3,7 @@ function Scorecard(FrameType) {
   this.frames = [];
   this.bonusFrame = [];
   this.finalFrameBonus = [];
-  this.gameOver = false;
+  // this.gameOver = false;
   this.initFrames(FrameType);
 }
 

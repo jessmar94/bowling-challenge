@@ -14,9 +14,6 @@ describe("Scorecard", function() {
         card.frames[i].bowl(0)
         card.frames[i].bowl(0)
       }
-      for (var i = 0; i < 10; i++) {
-        card.initFrames(frames[i])
-      }
       expect(card.getCumulativeScore()).toEqual(0)
     })
   })
@@ -51,8 +48,8 @@ describe("Scorecard", function() {
         card.frames[i].bowl(0)
       }
 
-      card.frame10.bowl(7)
-      card.frame10.bowl(3)
+      card.frames[9].bowl(7)
+      card.frames[9].bowl(3)
 
       card.getFinalFrameBonus(5)
       expect(card.getTotalScore()).toEqual(69);

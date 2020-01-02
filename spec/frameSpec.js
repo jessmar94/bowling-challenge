@@ -2,7 +2,7 @@
 
 describe("Frame", function() {
 
-  var frame;
+  let frame;
 
   beforeEach(function() {
     frame = new Frame();
@@ -39,19 +39,10 @@ describe("Frame", function() {
     })
   })
 
-  describe('calcFrameScore', function() {
-    it('totals the score for the frame', function() {
-      frame.bowl(5)
-      frame.bowl(3)
-      expect(frame.calcFrameScore()).toEqual(8)
-    })
-  })
-
   describe('getFrameScore', function() {
     it('returns the score so far', function() {
       frame.bowl(5)
       frame.bowl(3)
-      frame.calcFrameScore()
       expect(frame.getFrameScore()).toEqual(8)
     })
   })
@@ -59,7 +50,7 @@ describe("Frame", function() {
   describe('strike functin', function() {
     it('returns true if players bowls 10', function() {
       frame.bowl(10)
-      expect(frame.strike).toEqual(true)
+      expect(frame.isStrike()).toEqual(true)
     })
   })
 
@@ -67,7 +58,7 @@ describe("Frame", function() {
     it('returns true if frame score is 10', function() {
       frame.bowl(5)
       frame.bowl(5)
-      expect(frame.spare).toEqual(true)
+      expect(frame.isSpare()).toEqual(true)
     })
   })
 })

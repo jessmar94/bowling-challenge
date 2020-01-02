@@ -1,0 +1,29 @@
+{
+  "name": "bowling-challenge",
+  "version": "1.0.0",
+  "description": "The challenge is to create a scorecard for a game of bowling. The scorecard will take in the values for the pins knocked down by a single player and sum the total score for each round and finally for the entire game.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessmar94/bowling-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jessmar94/bowling-challenge/issues"
+  },
+  "homepage": "https://github.com/jessmar94/bowling-challenge#readme"
+}

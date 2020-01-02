@@ -1,18 +1,33 @@
+# Bowling Challenge
+## Summary
+The challenge is to create a scorecard for a game of bowling. The scorecard will take in the values for the pins knocked down by a single player and sum the total score for each round and finally for the entire game.
 
-Bowling Challenge
-=================
+As this is a scorecard, the user inputs the rolls (i.e. the rolls will not be randomly generated).
 
+This project has 13 passing tests for the backend.
 
-# User Story 1
+## How to Install and Run
+1. Clone this repository.
+2. Move into the folder directory and run the app by typing the following into the terminal:
+``` bash
+$ cd path/to/directory
+$ open src/Bowling.html
+```
+
+## How to Run Tests
+Copy the full path for the `SpecRunner.html` file and paste into your browser.
+
+## User Stories
+``` bash
 As a player
 So I can keep a scorecard of my bowling game,
 I want to enter how many pins I knock down on each bowl.
-
-# User Story 2
+```
+``` bash
 As a player,
 So I can keep track of my score at each frame,
 I want to be able to see the total score for each frame (pre bonuses).  
-
+```
 # User Story 3
 As a player
 So that I can know if I'm better than my friends,
@@ -21,14 +36,9 @@ I want to be able to see the total score for my bowling game (pre bonuses).
 # User Story 4
 As a player
 So the scorecard factors in my strikes,
-I should not get a second bowl if I get a strike on my first bowl, within one frame. 
+I should not get a second bowl if I get a strike on my first bowl, within one frame.
 
-# User Story 5
-As a player
-
-
-# User Story 6
-As a player
+## Plan
 
 
 ## The Task

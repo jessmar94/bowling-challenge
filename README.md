@@ -4,18 +4,22 @@ The challenge is to create a scorecard for a game of bowling. The scorecard will
 
 As this is a scorecard, the user inputs the rolls (i.e. the rolls will not be randomly generated).
 
-This project has 13 passing tests for the backend.
+This project has 11 passing tests for the backend.
 
 ## How to Install and Run
 1. Clone this repository.
 2. Move into the folder directory and run the app by typing the following into the terminal:
 ``` bash
 $ cd path/to/directory
-$ open src/Bowling.html
+$ npm install
+Copy the full path for the `SpecRunner.html` file and paste into your browser.
+Inspect the file and open up the console.
 ```
 
 ## How to Run Tests
-Copy the full path for the `SpecRunner.html` file and paste into your browser.
+```bash
+$ npm test
+```
 
 ## User Stories
 ``` bash

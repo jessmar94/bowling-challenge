@@ -2,8 +2,6 @@
 
 function Frame() {
   this.roll = [];
-  this.strike = false;
-  this.spare = false;
 }
 
 Frame.prototype.bowl = function(knockedPins) {
@@ -18,21 +16,13 @@ Frame.prototype.getFrameScore = function() {
 }
 
 Frame.prototype.validateFrameLength = function() {
-  if (this.roll.length >= 2) {
-    return false
-  } else {
-    return true
-  }
+  return this.roll.length < 2;
 }
 
 Frame.prototype.isStrike = function() {
-  if (this.roll[0] === 10) {
-    this.strike = true;
-  }
+  return this.roll[0] === 10;
 }
 
 Frame.prototype.isSpare = function() {
-  if (this.calcFrameScore() === 10) {
-    this.spare = true;
-  }
+  return this.getFrameScore() === 10; 
 }

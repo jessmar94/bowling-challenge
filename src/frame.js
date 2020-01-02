@@ -30,7 +30,7 @@ Frame.prototype.isStrike = function() {
 Frame.prototype.isSpare = function() {
   return this.getFrameScore() === 10;
 }
-//
-// if (typeof module !== 'undefined' && module.hasOwnProperty('exports')) {
-//   module.exports = Frame;
-// }
+
+if (typeof module !== 'undefined' && module.hasOwnProperty('exports')) {
+  module.exports = Frame;
+}

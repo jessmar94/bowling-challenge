@@ -79,3 +79,7 @@ Scorecard.prototype.getTotalScore = function() {
   this.calcFrameBonus();
   return this.getCumulativeScore() + this.calcBonusScore() + this.calcFinalFrameBonus();
 };
+
+if (typeof module !== 'undefined' && module.hasOwnProperty('exports')) {
+  module.exports = Scorecard;
+}

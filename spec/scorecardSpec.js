@@ -3,7 +3,6 @@ const Scorecard = require('../src/scorecard');
 
 describe("Scorecard", function() {
   let card
-  var frame
 
   beforeEach(function() {
     card = new Scorecard(Frame);

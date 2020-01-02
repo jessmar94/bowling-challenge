@@ -1,6 +1,6 @@
 "use strict";
 
-function Scorecard(frameType) {
+function Scorecard(FrameType) {
   this.frames = [];
   this.bonusFrame = [];
   this.finalFrameBonus = [];

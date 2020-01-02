@@ -1,4 +1,4 @@
-"use strict";
+const Frame = require('../src/frame');
 
 describe("Frame", function() {
 

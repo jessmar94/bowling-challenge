@@ -7,10 +7,6 @@ function Frame() {
   this.spare = false;
 }
 
-Frame.prototype.getRolls = function() {
-  return this.roll
-}
-
 Frame.prototype.getFrameScore = function() {
   this.frameScore = this.calcFrameScore()
   return this.frameScore

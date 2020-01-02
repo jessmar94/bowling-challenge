@@ -21,36 +21,23 @@ Scorecard.prototype.getCumulativeScore = function () {
 Scorecard.prototype.calcFrameBonus = function () {
   for (let i = 0; i < 8; i++) {
     if (this.frames[i].isStrike()) {
-      this.bonusFrame[i] = (this.frames[i + 1].getFrameScore()) + (this.frames[i + 2].getFrameScore());
+      this.bonusFrame[i] = this.frames[i + 1].getFrameScore() + this.frames[i + 2].getFrameScore();
     } else if (this.frames[i].isSpare()) {
       const [spareScore = 0] = this.frames[i + 1].getRolls();
       this.bonusFrame[i] = spareScore;
     }
   }
+
   this.getPenultimateFrameBonus();
 };
 
 // for 9th frame
 Scorecard.prototype.getPenultimateFrameBonus = function () {
   if (this.frames[8].isStrike()) {
-    this.bonusFrame[8] = (this.frames[8].getFrameScore()) + (this.frames[9].getFrameScore());
+    this.bonusFrame[8] = this.frames[8].getFrameScore() + this.frames[9].getFrameScore();
   } else if (this.frames[8].isSpare()) {
     const [spareScore = 0] = this.frames[8].getRolls();
     this.bonusFrame[8] = spareScore;
-  }
-};
-
-// for 9th frame
-Scorecard.prototype.getPenultimateFrameBonus = function (pins) {
-  if (pins > 10) {
-    console.log('You cannot knock more than 10 pins');
-  } else if (this.frames[10].strike || this.frames[10].spare) {
-    if (pins === 10) {
-      this.finalFrameBonus.push(pins);
-      this.lastBonus;
-    } else {
-      this.finalFrameBonus.push(pins);
-    }
   }
 };
 

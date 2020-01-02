@@ -4,6 +4,10 @@ function Frame() {
   this.roll = [];
 }
 
+Frame.prototype.getRolls = function () {
+  return this.roll;
+};
+
 Frame.prototype.bowl = function(knockedPins) {
   if (knockedPins <= 10 && this.getFrameScore(knockedPins) <= 10 && this.validateFrameLength()) {
     this.roll.push(knockedPins)
@@ -26,7 +30,7 @@ Frame.prototype.isStrike = function() {
 Frame.prototype.isSpare = function() {
   return this.getFrameScore() === 10;
 }
-// 
+//
 // if (typeof module !== 'undefined' && module.hasOwnProperty('exports')) {
 //   module.exports = Frame;
 // }

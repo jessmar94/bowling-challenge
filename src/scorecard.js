@@ -1,40 +1,35 @@
 "use strict";
 
-function Scorecard() {
-  this.frameNumber = 1;
-  this.frames = { 1:[], 2:[], 3:[], 4:[], 5:[], 6:[], 7:[], 8:[], 9:[], 10:[] };
-  this.bonusFrame = {1:0, 2:0, 3:0, 4:0, 5:0, 6:0, 7:0, 8:0, 9:0, 10:0};
+function Scorecard(frameType) {
+  this.frames = [];
+  this.bonusFrame = [];
   this.bonusScore = 0;
-  this.cumulativeScore = 0;
   this.finalFrameBonus = [];
   this.gameOver = false;
+  this.initFrames(FrameType);
 }
 
 Scorecard.prototype.initFrames = function(frame){
-  this.frames[this.frameNumber] = frame;
-  this.frameNumber++;
-  this.calcFrameBonus();
+  for (let i = 0; i < 10; i++) {
+    this.frames.push(new FrameType());
+  }
 }
 
 Scorecard.prototype.getCumulativeScore = function() {
-  for (var i = 1; i < 11; i++) {
-    this.cumulativeScore += this.frames[i].frameScore;
-  }
-  return this.cumulativeScore
+  return this.frames.reduce((total, frame) => total + frame.getFrameScore(), 0);
 }
 
 // for first 8 frames
 Scorecard.prototype.calcFrameBonus = function() {
-  for (var i = 1; i < 9; i++) {
-    if (this.frames[i].strike) {
-      this.bonusFrame[i] = (this.frames[i+1].frameScore || 0) + (this.frames[i+2].frameScore || 0)
-    }
-    else if (this.frames[i].spare) {
-      this.bonusFrame[i] = this.frames[i+1][0]
+  for (let i = 0; i < 8; i++) {
+    if (this.frames[i].isStrike()) {
+      this.bonusFrame[i] = (this.frames[i+1].getFrameScore()) + (this.frames[i+2].getFrameScore());
+    } else if (this.frames[i].isSpare()) {
+      const [spareScore = 0] = this.frames[i + 1].getRolls();
+      this.bonusFrame[i] = spareScore;
     }
   }
-  this.getPenultimateFrameBonus()
-  return this.bonusFrame
+  this.getPenultimateFrameBonus();
 }
 
 // for 9th frame

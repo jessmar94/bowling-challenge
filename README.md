@@ -106,7 +106,7 @@ As a player,
 So I get extra points in the 10th frame when I bowl a strike or spare,
 I would to roll additional balls for the bonus and add those points to my total.
 ``
-## Technologies Used:
+## Technologies
 - JavaScript 
 - Node.js 
 - Jasmine 

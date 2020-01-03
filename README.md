@@ -108,7 +108,6 @@ I would to roll additional balls for the bonus and add those points to my total.
 ``
 ## Technologies
 - JavaScript 
-- Node.js 
 - Jasmine 
 - ESLint
 

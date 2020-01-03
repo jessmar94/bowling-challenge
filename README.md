@@ -6,7 +6,7 @@ As this is a scorecard, the user inputs the rolls (i.e. the rolls will not be ra
 
 This project is made up of two classes: Frame which keeps track of an individual frame's scores and any rules associated with an individual frame (e.g. if you bowl a strike on your first go, you don't get a second go); and Scorecard which has Frame instances and keeps track of the cumulative score of the game, including any bonuses. This project has 11 passing tests.
 
-## How to Install and Run
+## How to Install and Run
 1. Clone this repository.
 2. Move into the folder directory and run the app by typing the following into the terminal:
 ``` bash
@@ -106,6 +106,11 @@ As a player,
 So I get extra points in the 10th frame when I bowl a strike or spare,
 I would to roll additional balls for the bonus and add those points to my total.
 ``
+## Technologies Used:
+- JavaScript 
+- Node.js 
+- Jasmine 
+- ESLint
 
 ## Project Status
 As of 3rd January 2020, all user stories have been implemented. If I have more time, I would like to create an interactive interface either with jQuery and HTML or I would like to try building out a frontend using TypeScript. I would also set up [Travis CI](https://travis-ci.org) to run my tests.

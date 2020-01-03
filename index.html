@@ -1,0 +1,22 @@
+<head>
+  <script type="text/javascript" src="./src/Frame.js"></script>
+  <script type="text/javascript" src="./src/Scorecard.js"></script>
+</head>
+<body>
+  <div id="output"/>
+  <h1>Bowling Score:</h1>
+  <script type="text/javascript">
+    const score = new Scorecard(Frame)
+    for (var i = 0; i < 10; i++) {
+      score.frames[i].bowl(10)
+    }
+
+    score.getFinalFrameBonus(10)
+    score.getFinalFrameBonus(10)
+
+    const output = document.createElement('H1');
+    output.innerHTML = score.getTotalScore();
+
+    document.getElementById('output').appendChild(output);
+  </script>
+</body>

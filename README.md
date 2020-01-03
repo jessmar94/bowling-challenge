@@ -12,9 +12,47 @@ This project is made up of two classes: Frame which keeps track of an individual
 ``` bash
 $ cd path/to/directory
 $ npm install
-Copy the full path for the `SpecRunner.html` file and paste into your browser.
-Inspect the file and open up the console.
+$ node
+> const Frame = require('./src/Frame')
+undefined
+> const Scorecard = require('./src/Scorecard')
+undefined
+> const score = new Scorecard(Frame)
+undefined
+> score.frames[0].bowl(5)
+5
+> score.frames[0].bowl(2)
+7
+> score.frames[1].bowl(10)
+10
+> score.frames[2].bowl(7)
+7
+> score.frames[2].bowl(3)
+10
+> score.frames[3].bowl(0)
+0
+> score.frames[3].bowl(0)
+0
+> score.frames[4].bowl(10)
+10
+> score.frames[5].bowl(10)
+10
+> score.frames[6].bowl(10)
+10
+> score.frames[7].bowl(10)
+10
+> score.frames[8].bowl(10)
+10
+> score.frames[9].bowl(10)
+10
+> score.getFinalFrameBonus(10)
+undefined
+> score.getFinalFrameBonus(10)
+undefined
+> score.getTotalScore()
+217
 ```
+I have also made an index.html file if you wish to use this program in the browser. Currently, the html file is set-up for a 'perfect game'. If you copy the full path of the index.html file into your browser, you should see the total score of this game (300) in an h1 tag.
 
 ## How to Run Tests
 ```bash
@@ -36,16 +74,16 @@ I developed some user stories based on the bowling rules, as specified further b
 ``
 As a player,
 So I can keep track of how many pins I knock down,
-I want to input my number of knocked pins on each bowl.
+I want to input my number of knocked pins on a bowl.
 ``
 ``
 As a player,
-If I don't get a strike on my first bowl,
-I want to be able to input my knocked pins for the second bowl in the same frame.  
+If my first bowl is not a strike,
+I want to be able to input my knocked pins for a second bowl in the same frame.  
 ``
 ``
 As a player
-So I can see rubbish I am,
+So I can see how rubbish I am,
 I want to see my total score of 0 when I hit 0 pins on all 10 frames.
 ``
 ``
@@ -55,18 +93,18 @@ I want to see my total score of 300 when I get a strike every time.
 ``
 ``
 As a player,
-So I get the right bonus points for my strikes,
-I would like bonus points of the total of the next 2 rolls when I roll a strike.
+So I get extra points when I bowl a strike,
+I would like bonus points of the total of the next 2 rolls.
 ``
 ``
 As a player,
-So I get the right bonus points for my spares,
-I would like bonus points of the total of the next 1 roll when I roll a spare.
+So I get extra points when I bowl a spare,
+I would like bonus points of the total of the next 1 roll.
 ``
 ``
 As a player,
-So I get the score for the bonus round in the 10th frame,
-I would to include scores for the bonus round if I bowl a strike or spare.
+So I get extra points in the 10th frame when I bowl a strike or spare,
+I would to roll additional balls for the bonus and add those points to my total.
 ``
 
 ## Project Status

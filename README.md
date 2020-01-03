@@ -7,8 +7,8 @@ As this is a scorecard, the user inputs the rolls (i.e. the rolls will not be ra
 This project is made up of two classes: Frame which keeps track of an individual frame's scores and any rules associated with an individual frame (e.g. if you bowl a strike on your first go, you don't get a second go); and Scorecard which has Frame instances and keeps track of the cumulative score of the game, including any bonuses. This project has 11 passing tests.
 
 ## How to Install and Run
-1. Clone this repository.
-2. Move into the folder directory and run the app by typing the following into the terminal:
+This app runs on Javascript, and uses Node.js to manage dependencies and run the tests. To install Node.js follow the instructions [here](https://nodejs.org/en/). 
+Then install this app by cloning this repository using git. Move into the folder directory and run the following commands in the terminal: 
 ``` bash
 $ cd path/to/directory
 $ npm install

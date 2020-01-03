@@ -71,41 +71,41 @@ npx eslint spec
 
 ## Plan
 I developed some user stories based on the bowling rules, as specified further below.
-``
+```bash
 As a player,
 So I can keep track of how many pins I knock down,
 I want to input my number of knocked pins on a bowl.
-``
-``
+```
+```bash
 As a player,
 If my first bowl is not a strike,
 I want to be able to input my knocked pins for a second bowl in the same frame.  
-``
-``
+```
+```bash
 As a player
 So I can see how rubbish I am,
 I want to see my total score of 0 when I hit 0 pins on all 10 frames.
-``
-``
+```
+```bash
 As a player,
 So I can see how amazing I am,
 I want to see my total score of 300 when I get a strike every time.
-``
-``
+```
+```bash
 As a player,
 So I get extra points when I bowl a strike,
 I would like bonus points of the total of the next 2 rolls.
-``
-``
+```
+```bash
 As a player,
 So I get extra points when I bowl a spare,
 I would like bonus points of the total of the next 1 roll.
-``
-``
+```
+```bash
 As a player,
 So I get extra points in the 10th frame when I bowl a strike or spare,
 I would to roll additional balls for the bonus and add those points to my total.
-``
+```
 ## Technologies
 - JavaScript 
 - Jasmine 
